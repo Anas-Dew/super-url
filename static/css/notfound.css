@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    font-family: system-ui;
+}
+#h1{
+    color: aliceblue;
+    font-size: xxx-large;
+    font-family: inherit;
+    cursor: default;
+}
+a{
+    color:aliceblue;
+    cursor: pointer;
+    font-family: inherit;
+}
+a:active{
+    color:chartreuse;
+}
