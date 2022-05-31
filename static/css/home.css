@@ -102,6 +102,7 @@ input:focus {
 #linkhere:hover{
     transition:ease-in-out 0.6s; 
     background-color: #EDFF08;
+    cursor: pointer;
 }
 
 #footer > p{

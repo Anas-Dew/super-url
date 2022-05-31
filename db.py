@@ -1,6 +1,6 @@
 import pymongo
 
-db = pymongo.MongoClient('')
+db = pymongo.MongoClient('mongodb://localhost:27017')
 link_base = db['urlShortner']['linkBase']
 
 

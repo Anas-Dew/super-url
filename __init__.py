@@ -17,12 +17,12 @@ def runHome():
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
-        if re.search("^https://", original_link):
+        if re.search("^https://", original_link) or re.search("^http://", original_link):
             pushToDatabase(link_code, original_link)
         else:
             pushToDatabase(link_code, f"https://{original_link}")
 
-        push_link = f'{link_code}'
+        push_link = f'http://192.168.207.203:5000/{link_code}'
 
         return render_template('home.html', push_link=push_link)
 
@@ -38,4 +38,4 @@ def redirectToOriginalLink(link_code):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',debug=True)
