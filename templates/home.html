@@ -17,12 +17,12 @@
 
     <form action="/" method="post" id="link-short-form">
         <input type="text" name="og-link" class="button" id="og-link" placeholder="Paste link here">
-        <button type="submit" method="post" class="button" id="submit">Short</button>
-        <h4 name="linkhere" id="linkhere" onclick="click_redirect_to()">{{push_link}}</h4>
+        <button type="submit" method="post" class="button" id="submit" onclick="copy_text()">Short</button>
+        <h4 name="linkhere" id="linkhere" onclick="click_redirect_to()"><abbr name="abbr" title="{{abbr}}" style="text-decoration: none;">{{push_link}}</abbr></h4>
     </form>
 
     <footer id="footer">
-            <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
+        <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
     </footer>
 </body>
 

@@ -12,7 +12,7 @@ def runHome():
         original_link = request.form.get("og-link")
 
         if len(original_link) <= 0:
-            return render_template('home.html', push_link='Put a link !!')
+            return render_template('home.html', push_link='Put a link !!', abbr="Haha still you didn't generated any link, get one buddy!")
 
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
@@ -22,11 +22,11 @@ def runHome():
         else:
             pushToDatabase(link_code, f"https://{original_link}")
 
-        push_link = f'http://192.168.207.203:5000/{link_code}'
+        push_link = f'http://127.0.0.1:5000/{link_code}'
 
-        return render_template('home.html', push_link=push_link)
+        return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
-    return render_template('home.html', push_link='Generate a link !')
+    return render_template('home.html', push_link='Generate a link !', abbr="Haha you didn't generated any link, get one buddy!")
 
 
 @app.route(f'/<link_code>')
