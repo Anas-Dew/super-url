@@ -1,6 +1,7 @@
 from quicksqlconnector import quicksqlconnector
 
-db = quicksqlconnector('localhost', 6606, 'root', 'anas9916', 'userbase')
+db = quicksqlconnector('localhost', 6606,'root', 'anas9916', 'urlShortner')
+
 db.query('create database if not exists urlShortner')
 db.query('use urlShortner')
 db.query('create table if not exists linkBase(id varchar(10) primary key, originalLink varchar(1000))')

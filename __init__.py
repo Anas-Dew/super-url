@@ -23,7 +23,7 @@ def runHome():
         else:
             pushToDatabase(link_code, f"https://{original_link}")
 
-        push_link = f'http://192.168.43.150:5000/{link_code}'
+        push_link = f'http://anasdew.pythonanywhere.com/{link_code}'
 
         return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
