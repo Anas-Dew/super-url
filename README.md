@@ -7,7 +7,7 @@ shorten your links in a click !
 </p>
 
 <h3 align="center">
-Visit : http://anasdew.pythonanywhere.com/
+Visit : <a href='http://anasdew.pythonanywhere.com/' target='_blank'>
 </h3>
 
 <h4 align="center">

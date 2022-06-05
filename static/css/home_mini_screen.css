@@ -66,8 +66,6 @@ form {
     margin-top: 23px;
 }
 
-#submit:hover{}
-
 input:focus {
     outline: none;
     outline: 1px solid #020077;
