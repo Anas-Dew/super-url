@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request
 from random_gen import randomLinkCode
-from db import pushToDatabase, searchInDatabase, getLink
+# from db_mongo import pushToDatabase, searchInDatabase, getLink
+from db_sql import pushToDatabase, searchInDatabase, getLink
 import re
 
 app = Flask(__name__)
@@ -22,7 +23,7 @@ def runHome():
         else:
             pushToDatabase(link_code, f"https://{original_link}")
 
-        push_link = f'http://127.0.0.1:5000/{link_code}'
+        push_link = f'http://192.168.43.150:5000/{link_code}'
 
         return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
@@ -34,7 +35,7 @@ def redirectToOriginalLink(link_code):
     if searchInDatabase(link_code) == True:
         return redirect(getLink(link_code))
     else:
-        return render_template('notfound.html')
+        return render_template('not_found.html')
 
 
 if __name__ == "__main__":

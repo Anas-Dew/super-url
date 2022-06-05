@@ -1,0 +1,96 @@
+#app-title{
+    font-size: xxx-large;
+}
+
+body {
+    background: #000000;
+    font-family: 'Lato', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+form {
+    width: 65%;
+    margin: 10% auto;
+}
+
+
+.header {
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+
+.description {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.3em;
+    margin: -2px 0 45px;
+}
+
+
+.input {
+    display: flex;
+    align-items: center;
+}
+
+
+.button {
+    height: 44px;
+    border: none;
+}
+
+
+#og-link {
+    width: 75%;
+    background: #FDFCFB;
+    font-family: monospace;
+    color: #737373;
+    text-indent: 2%;
+    border-radius: 10px;
+}
+
+
+#submit {
+    width: 24%;
+    height: 49px;
+    background: #A8FE39;
+    color: #000000;
+    font-family: monospace;
+    font-weight: bold;
+    /* color: inherit; */
+    letter-spacing: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 23px;
+}
+
+#submit:hover{}
+
+input:focus {
+    outline: none;
+    outline: 1px solid #020077;
+    box-shadow: 0 0 4px #ffffff;
+    
+}
+
+#linkhere{
+    background-color: #A8FE39;
+    color: #000000;
+    width: 38%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    margin-top: 28px;
+    height: 45px;
+    font-family: monospace;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+#footer > p{
+    font-size: 10px;
+    font-family: inherit;
+}

@@ -5,12 +5,12 @@ link_base = db['urlShortner']['linkBase']
 
 
 def pushToDatabase(link_code: str, original_link: str):
-    input_style = {
+    input_schema = {
         '_id': link_code,
         'original_link': original_link
     }
 
-    link_base.insert_one(input_style)
+    link_base.insert_one(input_schema)
 
 
 def searchInDatabase(link_code: str):
@@ -26,6 +26,6 @@ def getLink(link_code: str):
     return url['original_link']
 
 
-# if __name__ == "__main__":
-#     # print(searchInDatabase('0b67Gq'))
-#     pass
+if __name__ == "__main__":
+    
+    pass
