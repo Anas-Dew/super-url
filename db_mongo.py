@@ -1,7 +1,7 @@
 import pymongo
 
 db = pymongo.MongoClient('mongodb://localhost:27017')
-link_base = db['urlShortner']['linkBase']
+link_base = db['superurl']['linkBase']
 
 
 def pushToDatabase(link_code: str, original_link: str):

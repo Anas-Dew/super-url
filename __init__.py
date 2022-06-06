@@ -26,7 +26,7 @@ def runHome():
         else:
             pushToDatabase(link_code, f"https://{original_link}")
 
-        push_link = f'http://anasdew.pythonanywhere.com/{link_code}'
+        push_link = f'http://superurl.pythonanywhere.com/{link_code}'
 
         return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
@@ -42,4 +42,4 @@ def redirectToOriginalLink(link_code):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0')
