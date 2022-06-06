@@ -1,9 +1,9 @@
 <h1 align="center">
-URL Shortner
+Super Url
 </h1>
 
 <p align="center">
-shorten your links in a click !
+do magic with your links !
 </p>
 
 <h3 align="center">
