@@ -7,7 +7,7 @@ window.onload = function () {
     link = document.getElementById('linkhere').textContent;
     const action = document.getElementById('submit');
 
-    if (link == 'Generate a link !' || link == 'Put a link !!' && original_link.length == 0) { action.innerHTML = 'Short'; }
+    if (link == 'Generate a link !' || link == 'Put a link !!' || link == 'Invalid URL' && original_link.length == 0) { action.innerHTML = 'Short'; }
     else { action.innerHTML = 'Copy'; }
 };
 
