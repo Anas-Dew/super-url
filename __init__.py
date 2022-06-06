@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from random_gen import randomLinkCode
+from utilities import isURLValid, randomLinkCode
 # from db_mongo import pushToDatabase, searchInDatabase, getLink
 from db_sql import pushToDatabase, searchInDatabase, getLink
 import re
@@ -14,7 +14,10 @@ def runHome():
 
         if len(original_link) <= 0:
             return render_template('home.html', push_link='Put a link !!', abbr="Haha still you didn't generated any link, get one buddy!")
-
+        
+        elif isURLValid(original_link) == False:
+            return render_template('home.html', push_link='Invalid URL', abbr="Haha still you didn't generated any link, get one buddy!")
+        
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
