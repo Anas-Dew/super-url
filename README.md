@@ -1,3 +1,7 @@
+<p align="center">
+    <image src="/"
+</p>
+
 <h1 align="center">
 🚀 Super Url 🚀
 </h1>
