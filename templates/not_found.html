@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/notfound.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/not_found.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <title>Not Found</title>
 </head>
 <body>
     <div>
         <h1 id="h1">Not Found :(</h1>
         <a href="/" rel="noopener noreferrer">Generate a link here</a>
+        <a href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
     </div>
+
+    <footer id="footer">
+        <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
+    </footer>
 </body>
 </html>

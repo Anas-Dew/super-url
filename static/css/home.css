@@ -108,4 +108,7 @@ input:focus {
 #footer > p{
     font-size: 10px;
     font-family: inherit;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
 }

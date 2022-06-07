@@ -40,6 +40,9 @@ def redirectToOriginalLink(link_code):
     else:
         return render_template('not_found.html')
 
-
+@app.route('/report-a-problem')
+def redirectToReportPage():
+    return render_template('report_a_problem.html')
+    
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

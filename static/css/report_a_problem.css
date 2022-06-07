@@ -1,0 +1,41 @@
+body{
+    background-color: black;
+}
+
+body > h1{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+body > div{
+    display: flex;
+    flex-direction: column;
+}
+
+#msg-box{
+    color: rgb(0, 0, 0);
+    width: 17rem;
+    display: flex;
+    align-self: center;
+    height: 5rem;
+    margin: 16px;
+    font-family: monospace;
+    text-indent: 10px;
+}
+
+#submit{
+    width: 10rem;
+    height: 2rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+#footer > p{
+    font-size: 10px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+}
