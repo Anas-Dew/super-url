@@ -1,5 +1,5 @@
 <p align="center">
-    <image src="/"
+    <image src="https://github.com/Anas-Dew/super-url/blob/main/files/SUPERICON_HD.png" alt='super url'>
 </p>
 
 <h1 align="center">
