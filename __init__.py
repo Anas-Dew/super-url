@@ -33,7 +33,7 @@ def runHome():
     return render_template('home.html', push_link='Generate a link !', abbr="Haha you didn't generated any link, get one buddy!")
 
 
-@app.route(f'/<link_code>')
+@app.route('/<link_code>')
 def redirectToOriginalLink(link_code):
     if searchInDatabase(link_code) == True:
         return redirect(getLink(link_code))
