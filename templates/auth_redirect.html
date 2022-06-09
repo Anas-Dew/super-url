@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/auth_redirect.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // window.onload = function () {
+        //     history.replaceState("", "", "/");
+        // };
+    </script>
+    <title>Password Protected Links - Super URL</title>
 </head>
-<body>
-    
+<body class="bg-black flex-col">
+
+    <h1 class="text-white font-bold text-5xl my-7">Super URL</h1>
+    <div>
+        <h5 class="text-white font-mono my-3">This is a protected link.</h5>
+        <form action="" method="post" class="w-full">
+            <input type="password" name="passcode" class="button input-boxes w-7/12" id="passcode" placeholder="{{input_message}}">
+            <button type="submit" method="post" class="button " id="auth-button">Access</button>
+        </form>
+    </div>
+
+    <footer id="footer">
+        <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
+    </footer>
 </body>
 </html>

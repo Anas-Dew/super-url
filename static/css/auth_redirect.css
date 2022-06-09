@@ -1,0 +1,18 @@
+#auth-button {
+    width: 50%;
+    height: 49px;
+    background: #A8FE39;
+    color: #000000;
+    font-family: monospace;
+    font-weight: bold;
+
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 23px;
+}
+
+#auth-button:hover{
+    background: #EDFF08;
+    width: 50%;
+    letter-spacing: 0px;
+}

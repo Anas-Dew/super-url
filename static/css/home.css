@@ -96,3 +96,7 @@ input:focus {
     cursor: pointer;
     justify-content: center;
 }
+
+#password-radio{
+    display: none;
+}

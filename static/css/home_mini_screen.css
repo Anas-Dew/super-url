@@ -86,3 +86,7 @@ input:focus {
     font-size: 10px;
     font-family: inherit;
 }
+
+#password-radio{
+    display: none;
+}
