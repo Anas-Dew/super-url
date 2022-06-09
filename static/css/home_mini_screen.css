@@ -79,18 +79,7 @@ input:focus {
 }
 
 #linkhere{
-    background-color: #A8FE39;
-    color: #000000;
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    align-items: center;
-    margin-top: 28px;
-    height: 45px;
-    font-family: monospace;
-    border-radius: 10px;
-    font-size: larger;
+    display : none;
 }
 
 #footer > p{

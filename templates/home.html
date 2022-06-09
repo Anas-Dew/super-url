@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
+    <meta name="description" content="Create password protected links - Do magic with your links - Super url"/>
     <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 
     <title>Super URL</title>
@@ -20,6 +21,14 @@
 
     <form action="/" method="post" id="link-short-form">
         <input type="text" name="og-link" class="button" id="og-link" placeholder="Paste link here">
+
+        <div class="flex justify-center">
+            <div class="form-check form-switch">
+              <input class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label inline-block text-gray-800" for="flexSwitchCheckDefault">Password Protected Link</label>
+            </div>
+          </div>
+          
         <button type="submit" method="post" class="button" id="submit" onclick="copy_text()">Short</button>
         <h4 name="linkhere" id="linkhere" onclick="click_redirect_to()"><abbr name="abbr" title="{{abbr}}" style="text-decoration: none;">{{push_link}}</abbr></h4>
     </form>
