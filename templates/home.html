@@ -11,24 +11,25 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <meta name="description" content="Create password protected links - Do magic with your links - Super url"/>
     <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Super URL</title>
+    <title>Password Protected Links - Super URL</title>
 
 </head>
 
-<body class="body-background">
-    <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
+<body>
+    <h1 id="app-title" class="font-bold" onclick="window.location.reload(true)">Super URL</h1>
 
     <form action="/" method="post" id="link-short-form">
-        <input type="text" name="og-link" class="button" id="og-link" placeholder="Paste link here">
+        <input type="text" name="og-link" class="button input-boxes" id="og-link" placeholder="Paste link here">
+        
+        <div id="password-radio" class="my-3">
+            <input type="checkbox" onclick="getpassword()" name="p-radio" id="p-radio">
+            <label for="p-radio">Password Protection</label>
+        </div>
+        
+        <input type="text" name="password-here" style="display: none;" class="button input-boxes" id="password-here" placeholder="Your secret password...">
 
-        <div class="flex justify-center">
-            <div class="form-check form-switch">
-              <input class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-              <label class="form-check-label inline-block text-gray-800" for="flexSwitchCheckDefault">Password Protected Link</label>
-            </div>
-          </div>
-          
         <button type="submit" method="post" class="button" id="submit" onclick="copy_text()">Short</button>
         <h4 name="linkhere" id="linkhere" onclick="click_redirect_to()"><abbr name="abbr" title="{{abbr}}" style="text-decoration: none;">{{push_link}}</abbr></h4>
     </form>

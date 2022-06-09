@@ -42,8 +42,8 @@ form {
 }
 
 
-#og-link {
-    width: 75%;
+.input-boxes {
+    width: 100%;
     background: #FDFCFB;
     font-family: monospace;
     color: #737373;

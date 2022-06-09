@@ -1,4 +1,4 @@
-#app-title{
+#app-title {
     font-size: xxx-large;
 }
 
@@ -41,15 +41,12 @@ form {
     border: none;
 }
 
-
-#og-link {
-    width: 98%;
+.input-boxes {
+    width: 100%;
     background: #FDFCFB;
     font-family: monospace;
     color: #737373;
-    display: flex;
-    text-align: center;
-    font-size: 9px;
+    text-indent: 2%;
     border-radius: 10px;
 }
 
@@ -71,7 +68,7 @@ form {
     margin-top: 23px;
 }
 
-#submit:hover{
+#submit:hover {
     background: #EDFF08;
     width: 100%;
     letter-spacing: 0px;
@@ -81,10 +78,10 @@ input:focus {
     outline: none;
     outline: 1px solid #020077;
     box-shadow: 0 0 4px #ffffff;
-    
+
 }
 
-#linkhere{
+#linkhere {
     background-color: #39fe5a;
     color: #000000;
     width: 101%;
@@ -99,7 +96,7 @@ input:focus {
     font-size: 9px;
 }
 
-#footer > p{
+#footer>p {
     font-size: 10px;
     font-family: inherit;
 }

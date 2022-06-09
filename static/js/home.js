@@ -30,3 +30,14 @@ function copy_text() {
 function click_redirect_to_anas() {
     window.open('https://github.com/Anas-Dew', "_blank");
 };
+
+// function to show/hide password input 
+function getpassword() {
+    is_radio_checked = document.getElementById('p-radio');
+    password_here = document.getElementById('password-here');
+    if (is_radio_checked.checked) {
+        password_here.style.display = "block";
+    } else {
+        password_here.style.display = "none";
+    }
+};
