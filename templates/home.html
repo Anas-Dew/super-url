@@ -5,20 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <meta name="google-site-verification" content="5rUOV99xf3KKybwXSfd92g3ZM0L3aBpR1lFYmxNCHGM" />
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind_base.css') }}"> -->
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
-    <meta name="description" content="Create password protected links - Do magic with your links - Super url"/>
-    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>Password Protected Links - Super URL</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+    </style>
+    
+    <title>Password Protected Links - Super URL - URL Shortner</title>
+    <meta name="description" content="Create password protected links - Do magic with your links - Super url"/>
 
 </head>
 
 <body>
-    <h1 id="app-title" class="font-bold my-4" onclick="window.location.reload(true)">Super URL</h1>
+    <h1 id="app-title" class="my-4" onclick="window.location.reload(true)">Super URL</h1>
 
     <form action="/" method="post" id="link-short-form">
         <input type="text" name="og-link" class="button input-boxes" id="og-link" placeholder="Paste link here">

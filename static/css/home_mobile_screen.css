@@ -104,3 +104,8 @@ input:focus {
 #password-radio{
     display: block;
 }
+
+#password-here{
+    width: 100%;
+    margin-left: 0;
+}

@@ -1,5 +1,6 @@
 #app-title{
     font-size: xxx-large;
+    font-family: 'Alfa Slab One', cursive;
 }
 
 body {
@@ -53,7 +54,7 @@ form {
 
 
 #submit {
-    width: 24%;
+    width: 15%;
     height: 49px;
     background: #A8FE39;
     color: #000000;
@@ -73,7 +74,7 @@ form {
 
 #submit:hover{
     background: #EDFF08;
-    width: 8%;
+    width: 15%;
     letter-spacing: 0px;
 }
 
@@ -98,5 +99,10 @@ input:focus {
 }
 
 #password-radio{
-    display: none;
+    display: block;
+}
+
+#password-here{
+    width: 24rem;
+    margin-left: 253px;
 }
