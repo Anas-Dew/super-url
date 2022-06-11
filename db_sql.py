@@ -6,7 +6,7 @@ db.query('create database if not exists superurl')
 db.query('use superurl')
 db.query('create table if not exists linkBase(id varchar(7) primary key, passCode varchar(50), originalLink varchar(2000))')
 
-def pushToDatabase(link_code: str, original_link: str, passcode : str):
+def pushToDatabase(link_code: str, passcode : str, original_link: str):
     db.query(f'insert into linkBase values("{link_code}","{passcode}","{original_link}")')
 
 def searchInDatabase(link_code: str):

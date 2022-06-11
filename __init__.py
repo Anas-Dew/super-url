@@ -24,9 +24,9 @@ def runHome():
             link_code = randomLinkCode()
 
         if re.search("^https://", original_link) or re.search("^http://", original_link):
-            pushToDatabase(link_code, original_link, passcode)
+            pushToDatabase(link_code, passcode, original_link)
         else:
-            pushToDatabase(link_code, f"https://{original_link}")
+            pushToDatabase(link_code, passcode, f"https://{original_link}")
 
         push_link = f'http://superurl.pythonanywhere.com/{link_code}'
 
