@@ -28,7 +28,7 @@ def runHome():
         else:
             pushToDatabase(link_code, passcode, f"https://{original_link}")
 
-        push_link = f'http://superurl.pythonanywhere.com/{link_code}'
+        push_link = f'{link_code}'
 
         return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
