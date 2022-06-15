@@ -8,9 +8,10 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
     <meta name="google-site-verification" content="5rUOV99xf3KKybwXSfd92g3ZM0L3aBpR1lFYmxNCHGM" />
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind_base.css') }}"> -->
+
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
+    
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,6 +44,8 @@
 
     <footer id="footer">
         <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
+        <p> | </p>
+        <a href="/report-a-problem">Report a problem</a>
     </footer>
 </body>
 

@@ -7,9 +7,10 @@ body > h1{
     display: flex;
     justify-content: center;
 }
-body > div{
+body > div > form{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #msg-box{
@@ -24,11 +25,20 @@ body > div{
 }
 
 #submit{
-    width: 10rem;
-    height: 2rem;
+    width: 44%;
+    height: 44px;
+    background: #A8FE39;
+    color: #000000;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 6px;
+    border-radius: 10px;
+    cursor: pointer;
     display: flex;
-    align-self: center;
+    text-align: center;
     justify-content: center;
+    align-items: center;
+    margin-top: 23px;
 }
 
 #footer > p{
@@ -38,4 +48,8 @@ body > div{
     display: flex;
     cursor: pointer;
     justify-content: center;
+}
+
+@media screen and (min-width: 1332px) {
+    #submit {width: 20%}
 }

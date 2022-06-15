@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request
 from utilities import isURLValid, randomLinkCode
 # from db_mongo import pushToDatabase, searchInDatabase, getLink
-from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink
+from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem
 import re
 
 app = Flask(__name__)
@@ -28,7 +28,7 @@ def runHome():
         else:
             pushToDatabase(link_code, passcode, f"https://{original_link}")
 
-        push_link = f'{link_code}'
+        push_link = f'superurl.pythonanywhere.com/{link_code}'
 
         return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
 
@@ -53,6 +53,9 @@ def redirectToOriginalLink(link_code):
 
 @app.route('/report-a-problem', methods=['GET', 'POST'])
 def redirectToReportPage():
+    if request.method == "POST":
+        problem = request.form.get("msg-box")
+        submitProblem(problem)
     return render_template('report_a_problem.html')
 
 

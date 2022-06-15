@@ -7,6 +7,7 @@ body {
     font-family: 'Lato', sans-serif;
     color: #FFFFFF;
     text-align: center;
+    padding: 25px;
 }
 
 form {
@@ -57,7 +58,7 @@ form {
     background: #A8FE39;
     color: #000000;
     font-family: monospace;
-    font-size: 9px;
+    font-size: 14px;
     letter-spacing: 6px;
     border-radius: 10px;
     cursor: pointer;
@@ -93,7 +94,8 @@ input:focus {
     height: 45px;
     font-family: monospace;
     border-radius: 10px;
-    font-size: 9px;
+    font-size: 10px;
+    font-weight:bold ;
 }
 
 #footer>p {

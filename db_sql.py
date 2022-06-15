@@ -5,6 +5,7 @@ db = quicksqlconnector('localhost', 6606,'root', 'anas9916', 'superurl')
 db.query('create database if not exists superurl')
 db.query('use superurl')
 db.query('create table if not exists linkBase(id varchar(7) primary key, passCode varchar(50), originalLink varchar(2000))')
+db.query('create table if not exists problemReported(msg varchar(500) primary key)')
 
 def pushToDatabase(link_code: str, passcode : str, original_link: str):
     db.query(f'insert into linkBase values("{link_code}","{passcode}","{original_link}")')
@@ -27,6 +28,9 @@ def matchPassword(link_code: str, passcode : str):
     if passcode == password:
         return True
     return False
+# -----------------------------------
+def submitProblem(problem_statement : str):
+    db.query(f'insert into problemReported values("{problem_statement}")')
 
 if __name__ == "__main__":
     pass

@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report_a_problem.css') }}">
     <title>Report a problem</title>
+    <script>
+        window.onload = function () {
+    history.replaceState("", "", "/report-a-problem");
+    };
+    </script>
 </head>
 <body>
     <h1>Descibe your problem</h1>
     <div>
-        <textarea id="msg-box" name="w3review" rows="4" cols="4" placeholder="Write here..."></textarea>
-        <input type="submit" value="Submit" id="submit">
+        <form action="/report-a-problem" method="post">
+
+            <textarea id="msg-box" name="msg-box" rows="4" cols="4" placeholder="Write here..."></textarea>
+            <input type="submit" value="Submit" id="submit">
+            <button id="submit"><a href="/">Home</a></button>
+        </form>
     </div>
 
     <footer id="footer">

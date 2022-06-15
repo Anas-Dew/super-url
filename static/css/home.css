@@ -90,12 +90,13 @@ input:focus {
     display: none;
 }
 
-#footer > p{
+#footer{
     font-size: 10px;
     font-family: inherit;
     display: flex;
     cursor: pointer;
     justify-content: center;
+    flex-direction: row;
 }
 
 #password-radio{
