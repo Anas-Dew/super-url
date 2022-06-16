@@ -20,10 +20,10 @@ function click_redirect_to() {
 
 // for copying shorted link directly from 'short' button by changing it to 'copy'
 function copy_text() {
-    link_code = document.getElementById('linkhere').textContent;
-    url_to_copy = window.location.href+link_code
+    link = document.getElementById('linkhere').textContent;
+    // url_to_copy = window.location.href+link_code
     if (link == 'Generate a link !' || link == 'Put a link !!') { }
-    else { navigator.clipboard.writeText(url_to_copy).then(function () { alert('Copied !'); }, function () { }); }
+    else { navigator.clipboard.writeText(link).then(function () { alert('Copied !'); }, function () { }); }
     
 };
 
