@@ -7,6 +7,14 @@ eng_big = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 'W', 'X', 'Y', 'Z']
 
 def randomLinkCode():
+    """
+    It creates a list of 5 elements, the first element is a random integer between 0 and 9, the second
+    element is a random lowercase letter, the third element is a random integer between 0 and 99, the
+    fourth element is a random uppercase letter, and the fifth element is a random lowercase letter. 
+    
+    The function then returns the list as a string
+    :return: A string of 5 characters.
+    """
     link_key = []
     link_key.append(f'{random.randint(0,9)}')
     link_key.append(random.choice(eng_small))
