@@ -24,10 +24,10 @@ def runHome():
         passcode = request.form.get("password-here")
 
         if len(original_link) <= 0:
-            return render_template('home.html', push_link='Put a link !!', abbr="Haha still you didn't generated any link, get one buddy!")
+            return render_template('home.html',push_msg="Put a link !!",push_link='Put a link !!')
 
         elif isURLValid(original_link) == False:
-            return render_template('home.html', push_link='Invalid URL', abbr="Haha still you didn't generated any link, get one buddy!")
+            return render_template('home.html',push_msg="Invalid URL", push_link='Invalid URL')
 
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
@@ -39,13 +39,14 @@ def runHome():
 
         push_link = f'superurl.pythonanywhere.com/{link_code}'
 
-        return render_template('home.html', push_link=push_link, abbr="GO TO YOUR LINK !")
+        return render_template('home.html', push_link=push_link,)
 
-    return render_template('home.html', push_link='Generate a link !', abbr="Haha you didn't generated any link, get one buddy!")
+    return render_template('home.html',push_msg="Paste your link", push_link='Generate a link !')
 
 
 @app.route('/<link_code>', methods=['GET', 'POST'])
 def redirectToOriginalLink(link_code):
+    passcode = request.form.get("passcode")
     """
     If the link_code is in the database, then check if it has a password. If it does, then check if the
     password is correct. If it is, then redirect to the original link. If it isn't, then render the
@@ -57,15 +58,17 @@ def redirectToOriginalLink(link_code):
     :return: the link to the original link.
     """
     if searchInDatabase(link_code) == True:
-        if checkPass(link_code) == True:
-            if request.method == "POST":
-                passcode = request.form.get("passcode")
-                if matchPassword(link_code, passcode) == True:
-                    return redirect(getLink(link_code))
-                return render_template('auth_redirect.html', input_message="Incorrect password !!!")
-            return render_template('auth_redirect.html', input_message="Enter secret password")
-        else:
-            return redirect(getLink(link_code))
+        # if len(passcode) <= 0:
+        #     return render_template('auth_redirect.html', input_message="Please input password !!!")
+        # else:
+            if checkPass(link_code) == True:
+                if request.method == "POST":
+                    if matchPassword(link_code, passcode) == True:
+                        return redirect(getLink(link_code))
+                    return render_template('auth_redirect.html', input_message="Incorrect password !!!")
+                return render_template('auth_redirect.html', input_message="Enter secret password")
+            else:
+                return redirect(getLink(link_code))
     else:
         return render_template('not_found.html')
 

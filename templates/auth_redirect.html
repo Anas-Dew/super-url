@@ -10,13 +10,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Password Protected Links - Super URL</title>
 </head>
-<body class="bg-black flex-col">
+<body style="background-color : #109973;" class="bg-black flex-col">
 
     <h1 class="text-white font-bold text-5xl my-7">Super URL</h1>
     <div>
-        <h5 class="text-white font-mono my-3">This is a protected link.</h5>
-        <form action="" method="post" class="w-full">
-            <input type="password" name="passcode" class="button input-boxes w-7/12" id="passcode" placeholder="{{input_message}}">
+        <h5 class="text-red-400 font-mono my-3">This is a protected link.</h5>
+        <form action="" method="post" class="w-full flex flex-col items-center">
+            <input type="password" name="passcode" class="button input-boxes w-[12rem]" id="passcode" placeholder="{{input_message}}">
             <button type="submit" method="post" class="button " id="auth-button">Access</button>
         </form>
     </div>

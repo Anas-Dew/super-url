@@ -12,6 +12,10 @@ body {
 form {
     width: 65%;
     margin: 10% auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;    
 }
 
 
@@ -53,7 +57,7 @@ form {
 
 
 #submit {
-    width: 19%;
+    width: 36%;
     height: 49px;
     background: #A8FE39;
     color: #000000;
@@ -91,7 +95,3 @@ input:focus {
     display: block;
 }
 
-#password-here{
-    width: 24rem;
-    margin-left: 216px;
-}

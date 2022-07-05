@@ -15,7 +15,6 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
     </style>
@@ -25,11 +24,11 @@
 
 </head>
 
-<body>
+<body style="background-color : #109973;">
     <h1 id="app-title" style="font-family:'Vidaloka', serif;" class="my-4" onclick="window.location.reload(true)">Super URL</h1>
 
     <form action="/" method="post" id="link-short-form">
-        <input type="text" name="oglink" class="button input-boxes" id="og-link" placeholder='{{"Paste link here"}}'>
+        <input type="text" name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
         
         <div id="password-radio" class="my-3">
             <input type="checkbox" onclick="getpassword()" name="p-radio" id="p-radio">
@@ -39,7 +38,7 @@
         <input type="text" name="password-here" style="display: none;" class="button input-boxes" id="password-here" placeholder="Your secret password...">
 
         <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">Short</button>
-        <h4 name="linkhere" id="linkhere"><abbr name="abbr" title="{{abbr}}" style="text-decoration: none;">{{push_link}}</abbr></h4>
+        <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
 
     <footer id="footer">

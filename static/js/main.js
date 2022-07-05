@@ -23,8 +23,8 @@ function copy_text() {
     link = document.getElementById('linkhere').textContent;
     // url_to_copy = window.location.href+link_code
     if (link == 'Generate a link !' || link == 'Put a link !!') { }
-    else { navigator.clipboard.writeText(link).then(function () { alert('Copied !'); }, function () { }); }
-    
+    else { navigator.clipboard.writeText(link).then(function () { alert('URL shorted and copied !'); }, function () { }); }
+            
 };
 
 // for redirecting to my github account.
