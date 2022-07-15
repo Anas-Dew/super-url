@@ -2,8 +2,11 @@ from flask import Flask, render_template, redirect, request
 from utilities import isURLValid, randomLinkCode
 from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem
 import re
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
+app.config['SECRET_KEY'] = 'i-have-removed-the-key'
 
 
 @app.route('/', methods=['GET', 'POST'])

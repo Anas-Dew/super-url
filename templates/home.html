@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
-    <meta name="google-site-verification" content="5rUOV99xf3KKybwXSfd92g3ZM0L3aBpR1lFYmxNCHGM" />
+    <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
 
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
@@ -17,10 +17,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+        #footer > p {
+            margin-right: 3px;
+        }
+        #footer > a {
+            margin-right: 3px;
+        }
     </style>
     
     <title>Password Protected Links - Super URL - URL Shortner</title>
     <meta name="description" content="Create password protected links - Do magic with your links - Super url"/>
+    <meta name="keywords" content="url Shortner, link shortner, superurl, password protected links">
 
 </head>
 
@@ -28,6 +35,7 @@
     <h1 id="app-title" style="font-family:'Vidaloka', serif;" class="my-4" onclick="window.location.reload(true)">Super URL</h1>
 
     <form action="/" method="post" id="link-short-form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <input type="text" name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
         
         <div id="password-radio" class="my-3">
@@ -40,11 +48,13 @@
         <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">Short</button>
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
-
+    <!-- it's temporary. In future, sidebar maybe added. -->    
     <footer id="footer">
-        <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
-        <p> | </p>
+        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
+        <p> - </p>
         <a href="/report-a-problem">Report a problem</a>
+        <p> - </p>
+        <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Support Development ☕</a>
     </footer>
 </body>
 

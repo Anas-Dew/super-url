@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report_a_problem.css') }}">
     <title>Report a problem</title>
-    <script>
-        window.onload = function () {
-    history.replaceState("", "", "/report-a-problem");
-    };
-    </script>
+    <script>window.onload = function () {history.replaceState("", "", "/report-a-problem");};</script>
 </head>
 <body>
     <h1>Descibe your problem</h1>
     <div>
         <form action="/report-a-problem" method="post">
-
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <textarea id="msg-box" name="msg-box" rows="4" cols="4" placeholder="Write here..."></textarea>
             <input type="submit" value="Submit" id="submit">
             <button id="submit"><a href="/">Home</a></button>
