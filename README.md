@@ -14,6 +14,8 @@ do magic with your links !
 <a href='https://superurl.pythonanywhere.com/' target='_blank'>Magic Here</a>
     -
 <a href='https://github.com/Anas-Dew/super-url/blob/main/files/tutorial.gif' target='_blank'>How to use?</a>
+    -
+<a href='https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md'>What is Super URL?</a>
 </h3>
 
 <p align="center">
