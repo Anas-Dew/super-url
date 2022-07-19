@@ -61,12 +61,11 @@ def redirectToOriginalLink(link_code):
     :return: the link to the original link.
     """
     if searchInDatabase(link_code) == True:
-        # if len(passcode) <= 0:
-        #     return render_template('auth_redirect.html', input_message="Please input password !!!")
-        # else:
             if checkPass(link_code) == True:
                 if request.method == "POST":
-                    if matchPassword(link_code, passcode) == True:
+                    if len(passcode) <= 0:
+                        return render_template('auth_redirect.html', input_message="Please input password !!!")
+                    elif matchPassword(link_code, passcode) == True:
                         return redirect(getLink(link_code))
                     return render_template('auth_redirect.html', input_message="Incorrect password !!!")
                 return render_template('auth_redirect.html', input_message="Enter secret password")

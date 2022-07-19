@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
     <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/top_bar.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
     
@@ -32,6 +32,18 @@
 </head>
 
 <body style="background-color : #109973;">
+    <!--it's menu bar -->
+    <div id="top-bar" style="display: none;">
+        <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Support Development</a>
+        <a href="https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md" target="_blank">What is Super URL?</a>
+        <a href="/report-a-problem">Report a problem</a>
+        <a style="background-color: #8ddb2a;" onclick="open_menu()">Close</a>
+    </div>
+    <div id="top-bar-button" onclick="open_menu()" style="display: block;">
+        Menu
+    </div>
+    <!--it's menu bar end-->
+
     <h1 id="app-title" style="font-family:'Vidaloka', serif;" class="my-4" onclick="window.location.reload(true)">Super URL</h1>
 
     <form action="/" method="post" id="link-short-form">
@@ -39,22 +51,18 @@
         <input type="text" name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
         
         <div id="password-radio" class="my-3">
-            <input type="checkbox" onclick="getpassword()" name="p-radio" id="p-radio">
+            <input type="checkbox" onclick="get_password()" name="p-radio" id="p-radio">
             <label for="p-radio">Password Protection</label>
         </div>
         
         <input type="text" name="password-here" style="display: none;" class="button input-boxes" id="password-here" placeholder="Your secret password...">
 
-        <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">Short</button>
+        <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">short</button>
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
     <!-- it's temporary. In future, sidebar maybe added. -->    
     <footer id="footer">
-        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
-        <p> - </p>
-        <a href="/report-a-problem">Report a problem</a>
-        <p> - </p>
-        <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Support Development ☕</a>
+        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>        
     </footer>
 </body>
 

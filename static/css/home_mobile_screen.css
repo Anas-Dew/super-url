@@ -7,7 +7,7 @@ body {
     font-family: 'Lato', sans-serif;
     color: #FFFFFF;
     text-align: center;
-    padding: 25px;
+    /* padding: 25px; */
 }
 
 form {
@@ -57,8 +57,7 @@ form {
     height: 44px;
     background: #A8FE39;
     color: #000000;
-    font-family: monospace;
-    font-size: 14px;
+    font-size: 0.8rem;
     letter-spacing: 6px;
     border-radius: 10px;
     cursor: pointer;

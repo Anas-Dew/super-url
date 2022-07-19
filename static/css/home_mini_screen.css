@@ -61,8 +61,7 @@ form {
     height: 49px;
     background: #A8FE39;
     color: #000000;
-    font-family: monospace;
-    font-weight: bold;
+    font-size: 0.8rem;
     letter-spacing: 6px;
     border-radius: 10px;
     cursor: pointer;
@@ -93,5 +92,9 @@ input:focus {
 
 #password-radio{
     display: block;
+}
+
+#password-here{
+    width: 19rem;
 }
 

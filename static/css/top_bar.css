@@ -1,0 +1,20 @@
+#top-bar {
+    background-color: #A8FE39;
+    flex-direction: column;
+}
+
+#top-bar>a {
+    cursor: pointer;
+    margin-top: 0.6rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    color: black;
+}
+
+#top-bar-button {
+    background-color: #A8FE39;
+    color: black;
+    cursor: pointer;
+    padding: 0.5rem;
+    text-decoration: none;
+}

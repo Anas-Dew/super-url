@@ -62,14 +62,13 @@ form {
     height: 49px;
     background: #A8FE39;
     color: #000000;
-    font-family: monospace;
-    font-weight: bold;
-    /* color: inherit; */
+    font-size: 0.8rem;
+    
     letter-spacing: 6px;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 23px;
-    
+
     transition-property: background, letter-spacing, width;
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
@@ -97,10 +96,10 @@ input:focus {
 #footer{
     font-size: 10px;
     font-family: inherit;
-    display: flex;
+    /* display: flex; */
     cursor: pointer;
-    justify-content: center;
-    flex-direction: row;
+    /* justify-content: center;
+    flex-direction: row; */
 }
 
 #password-radio{

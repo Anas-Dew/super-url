@@ -3,9 +3,9 @@
     height: 49px;
     background: #A8FE39;
     color: #000000;
-    font-family: monospace;
-    font-weight: bold;
-
+    /* font-family: monospace; */
+    /* font-weight: bold; */
+    font-size: 0.8rem;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 23px;
@@ -26,4 +26,9 @@
         width: 12rem;
         letter-spacing: 0px;
     }
+  }
+
+#passcode::placeholder {
+    color: rgb(255, 104, 104);
+    /* opacity: 1; Firefox */
   }
