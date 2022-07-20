@@ -8,7 +8,11 @@ window.onload = function () {
     const action = document.getElementById('submit');
 
     if (link == 'Generate a link !' || link == 'Put a link !!' || link == 'Invalid URL' && original_link.length == 0) { action.innerHTML = 'Short'; }
-    else { action.innerHTML = 'Copy'; }
+    else { action.innerHTML = 'Copy'; };
+
+    // if (link == 'Copy') {
+    //     action.style.backgroundColor = 'yellow';
+    // };
 };
 
 // for redirecting to the link which is sorted by clicking on it. 

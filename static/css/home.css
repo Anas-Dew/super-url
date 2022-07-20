@@ -1,6 +1,8 @@
 #app-title{
     font-size: xxx-large;
     font-family: 'Alfa Slab One', cursive;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 body {
@@ -40,6 +42,12 @@ form {
     align-items: center;
 }
 
+input:focus {
+    outline: none;
+    outline: 1px solid #a8fe39;
+    box-shadow: 0 0 4px #ffffff;
+    
+}
 
 .button {
     height: 44px;
@@ -48,12 +56,12 @@ form {
 
 
 .input-boxes {
-    width: 75%;
+    width: 19rem;
     background: #FDFCFB;
     font-family: monospace;
     color: #737373;
-    text-indent: 2%;
-    border-radius: 10px;
+    text-indent: 7%;
+    border-radius: 16px;
 }
 
 
@@ -65,7 +73,7 @@ form {
     font-size: 0.8rem;
     
     letter-spacing: 6px;
-    border-radius: 10px;
+    border-radius: 16px;
     cursor: pointer;
     margin-top: 23px;
 
@@ -82,12 +90,6 @@ form {
 }
 
 
-input:focus {
-    outline: none;
-    outline: 1px solid #020077;
-    box-shadow: 0 0 4px #ffffff;
-    
-}
 
 #linkhere{
     display: none;
@@ -96,17 +98,16 @@ input:focus {
 #footer{
     font-size: 10px;
     font-family: inherit;
-    /* display: flex; */
     cursor: pointer;
-    /* justify-content: center;
-    flex-direction: row; */
 }
 
 #password-radio{
     display: block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 #password-here{
-    width: 24rem;
+    width: 19rem;
     /* margin-left: 253px; */
 }

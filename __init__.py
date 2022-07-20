@@ -44,7 +44,7 @@ def runHome():
 
         return render_template('home.html', push_link=push_link,)
 
-    return render_template('home.html',push_msg="Paste your link", push_link='Generate a link !')
+    return render_template('home.html',push_msg="Paste link", push_link='Generate a link !')
 
 
 @app.route('/<link_code>', methods=['GET', 'POST'])

@@ -1,6 +1,7 @@
 #top-bar {
     background-color: #A8FE39;
     flex-direction: column;
+    border-radius: 16px;
 }
 
 #top-bar>a {
@@ -10,8 +11,17 @@
     padding: 0.5rem;
     color: black;
 }
+#top-bar>a:active {
+    cursor: progress;
+    color: rgb(255, 255, 255);
+}
+/* #top-bar>a:visited {
+    cursor: progress;
+    color: rgb(25, 0, 255);
+} */
 
 #top-bar-button {
+    border-radius: 16px;
     background-color: #A8FE39;
     color: black;
     cursor: pointer;
