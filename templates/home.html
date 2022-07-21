@@ -16,10 +16,9 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
     
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
         #footer > p {
             margin-right: 3px;
         }
@@ -28,9 +27,9 @@
         }
     </style>
     
-    <title>Password Protected Links - Super URL - free URL Shortener</title>
-    <meta name="description" content="Super URL is a web app which helps you secure your links ('URLs')
-    with (or without) password and as well as shorts your links. It is totally free of cost and secure."/>
+    <title>URL Shortener - Short URLs , Free Link Shortener | Super URL</title>
+    <meta name="description" content="free URL shortener to reduce long and unattractive link and set password to links. It is totally free of cost and secure. Use it to short links and share them anywhere with password security. Try it out."/>
+
     <meta name="keywords" content="url shortener, url shortener free, link shortener free online. link shortener free, link shortener, superurl, password protected links">
 
 </head>
@@ -46,7 +45,7 @@
     <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div>
     <!--it's menu bar end-->
 
-    <header id="app-title" style="font-family:'Vidaloka', serif;" onclick="window.location.reload(true)">Super URL</header>
+    <header id="app-title" onclick="window.location.reload(true)">Super URL</header>
 
     <form action="/" method="post" id="link-short-form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

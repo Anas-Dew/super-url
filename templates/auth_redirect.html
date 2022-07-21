@@ -12,13 +12,13 @@
 </head>
 <body style="background-color : #109973;" class="bg-black flex-col">
 
-    <h1 class="text-white font-bold text-5xl my-7">Super URL</h1>
+    <h1 id="app-title">Super URL</h1>
     <div>
         <h5 class="text-red-400 font-mono my-3">This is a protected link.</h5>
         <form action="" method="post" class="w-full flex flex-col items-center">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <input type="password" name="passcode" class="button input-boxes w-[12rem]" id="passcode" placeholder="{{input_message}}">
-            <button type="submit" method="post" class="button " id="auth-button">Access</button>
+            <button type="submit" method="post" class="button button-style" id="auth-button">Access</button>
         </form>
     </div>
 
