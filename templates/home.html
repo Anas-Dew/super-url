@@ -28,24 +28,26 @@
     </style>
     
     <title>URL Shortener - Short URLs , Free Link Shortener | Super URL</title>
-    <meta name="description" content="free URL shortener to reduce long and unattractive link and set password to links. It is totally free of cost and secure. Use it to short links and share them anywhere with password security. Try it out."/>
+    <meta name="description" content="free URL shortener to reduce long link and set password to links. It is totally free of cost and secure. Try it out."/>
 
-    <meta name="keywords" content="url shortener, url shortener free, link shortener free online. link shortener free, link shortener, superurl, password protected links">
+    <meta name="keywords" content="short url, shorten url, link shortener free online, link shortener, superurl, password protected links, acortador de link, google url, encurtador de link, tiny">
 
 </head>
 
 <body style="background-color : #109973;">
-    <!--it's menu bar -->
-    <nav id="top-bar" style="display: none;">
+    <header>
+        <!--it's menu bar -->
+        <nav id="top-bar" style="display: none;">
             <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Be a star supporter</a>
             <a href="https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md" target="_blank">What is super URL?</a>
             <a href="/report-a-problem">Report a problem</a>
             <a style="background-color: #8ddb2a;" onclick="open_menu()">Close</a>
-    </nav>
-    <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div>
-    <!--it's menu bar end-->
-
-    <header id="app-title" onclick="window.location.reload(true)">Super URL</header>
+        </nav>
+        <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div>
+        <!--it's menu bar end-->
+        
+        <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
+    </header>
 
     <form action="/" method="post" id="link-short-form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
