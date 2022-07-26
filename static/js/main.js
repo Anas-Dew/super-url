@@ -10,9 +10,6 @@ window.onload = function () {
     if (link == 'Generate a link !' || link == 'Put a link !!' || link == 'Invalid URL' && original_link.length == 0) { action.innerHTML = 'Short'; }
     else { action.innerHTML = 'Copy'; };
 
-    // if (link == 'Copy') {
-    //     action.style.backgroundColor = 'yellow';
-    // };
 };
 
 // for redirecting to the link which is sorted by clicking on it. 
@@ -41,7 +38,7 @@ function get_password() {
 // for copying shorted link directly from 'short' button by changing it to 'copy'
 function copy_text() {
     link = document.getElementById('linkhere').textContent;
-    if (link == 'Generate a link !' || link == 'Put a link !!') { }
+    if (link == 'Generate a link !' || link == 'Put a link !!' || link == 'Invalid URL') { }
     else { navigator.clipboard.writeText(link).then(function () { alert('URL shorted and copied !'); }, function () { }); }
 
 };

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5915669766823865"
+     crossorigin="anonymous"></script>
     <link rel="canonical" href="https://superurl.pythonanywhere.com/"/>
     <meta name="theme-color" content="#109973"/>
     <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/top_bar.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
-    
+
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
 
@@ -26,7 +27,7 @@
             margin-right: 3px;
         }
     </style>
-    
+
     <title>URL Shortener - Short URLs , Free Link Shortener | Super URL</title>
     <meta name="description" content="free URL shortener to reduce long link and set password to links. It is totally free of cost and secure. Try it out."/>
 
@@ -38,34 +39,48 @@
     <header>
         <!--it's menu bar -->
         <nav id="top-bar" style="display: none;">
-            <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Be a star supporter</a>
+            <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Buy me a coffee</a>
             <a href="https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md" target="_blank">What is super URL?</a>
             <a href="/report-a-problem">Report a problem</a>
             <a style="background-color: #8ddb2a;" onclick="open_menu()">Close</a>
         </nav>
         <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div>
         <!--it's menu bar end-->
-        
+
         <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
     </header>
 
     <form action="/" method="post" id="link-short-form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <input type="text"  name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
-        
+
         <div id="password-radio">
             <input type="checkbox" onclick="get_password()" name="p-radio" id="p-radio">
             <label for="p-radio">Password Protection</label>
         </div>
-        
+
         <input type="text" name="password-here" style="display: none;" class="button input-boxes" id="password-here" placeholder="Secret password...">
 
         <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">short</button>
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
-   
+
+    <div>
+        <!-- home ad -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5915669766823865"
+     crossorigin="anonymous"></script>
+        <!-- square -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:300px;height:300px"
+            data-ad-client="ca-pub-5915669766823865"
+            data-ad-slot="3021115437"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
     <footer id="footer">
-        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>        
+        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
     </footer>
 </body>
 
