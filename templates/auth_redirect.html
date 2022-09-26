@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/auth_redirect.css') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Password Protected Links - Super URL</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title>Password protected</title>
 </head>
-<body style="background-color : #109973;" class="bg-black flex-col">
+<body style="background-color : #4040d6;">
 
-    <h1 id="app-title">Super URL</h1>
+    <header style="display: flex;
+    place-content: space-between;
+    align-items: baseline;
+    margin: 15px;">
+        
+            <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
+            <div>
+                <!-- <img style="width: 72px;height: 72px;" src="../files/tea.gif" alt=""> -->
+                <a style="color: white;" href="https://www.buymeacoffee.com/anasraza" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
+                <a style="color: white;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
+            </div>
+    </header>
     <div>
-        <h5 class="text-red-400 font-mono my-3">This is a protected link.</h5>
         <form action="" method="post" class="w-full flex flex-col items-center">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <input type="password" name="passcode" class="button input-boxes w-[12rem]" id="passcode" placeholder="{{input_message}}">
-            <button type="submit" method="post" class="button button-style" id="auth-button">Access</button>
+            <input type="password" name="passcode" class="button input-boxes" id="passcode" placeholder="{{input_message}}">
+            <button style="letter-spacing: 0px;" type="submit" method="post" id="submit">Access</button>
         </form>
     </div>
 

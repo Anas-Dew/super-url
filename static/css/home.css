@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+
 
 #app-title{
+    cursor: pointer;
     font-size: xxx-large;
-    font-family:'Vidaloka', serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -44,24 +45,24 @@ input:focus {
 
 
 .input-boxes {
-    width: 19rem;
+    width: 36rem;
     background: #FDFCFB;
     font-family: monospace;
     color: #737373;
     text-indent: 7%;
-    border-radius: 16px;
+    border-radius: 10px;
 }
 
 
 #submit {
-    width: 15%;
-    height: 49px;
-    background: #A8FE39;
+    width: 14%;
+    height: 44px;
+    background: #e5e5e5;
     color: #000000;
     font-size: 0.8rem;
-    
+    border: 1px solid black;
+    border-radius: 10px;
     letter-spacing: 6px;
-    border-radius: 16px;
     cursor: pointer;
     margin-top: 23px;
 

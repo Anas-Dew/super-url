@@ -17,6 +17,15 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2098R4JCB"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B2098R4JCB');
+    </script>
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     <style>
@@ -35,31 +44,43 @@
 
 </head>
 
-<body style="background-color : #109973;">
+<body style="background-color : #4040d6;">
     <header>
+
+        <div style="    display: flex;
+        place-content: space-between;
+        align-items: baseline;
+        margin: 15px;">
+            <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
+            <div>
+                <!-- <img style="width: 72px;height: 72px;" src="../files/tea.gif" alt=""> -->
+                <a style="color: white;" href="https://www.buymeacoffee.com/anasraza" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
+                <a style="color: white;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
+            </div>
+        </div>
         <!--it's menu bar -->
-        <nav id="top-bar" style="display: none;">
+        <!-- <nav id="top-bar" style="display: none;">
             <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Buy me a coffee</a>
             <a href="https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md" target="_blank">What is super URL?</a>
             <a href="/report-a-problem">Report a problem</a>
             <a style="background-color: #8ddb2a;" onclick="open_menu()">Close</a>
         </nav>
-        <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div>
+        <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div> -->
         <!--it's menu bar end-->
 
-        <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
+        <!-- <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1> -->
     </header>
 
     <form action="/" method="post" id="link-short-form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <input type="text"  name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
 
+        <input type="text" name="password-here" style="display: none;margin-top: 14px;" class="button input-boxes" id="password-here" placeholder="Password">
         <div id="password-radio">
             <input type="checkbox" onclick="get_password()" name="p-radio" id="p-radio">
             <label for="p-radio">Password Protection</label>
         </div>
 
-        <input type="text" name="password-here" style="display: none;" class="button input-boxes" id="password-here" placeholder="Secret password...">
 
         <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">short</button>
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
@@ -81,6 +102,7 @@
     </div>
     <footer id="footer">
         <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
+        <a style="color: white;" href="https://medium.com/subscribe/@anasdew" target="_blank" rel="noopener noreferrer">SUBSCRIBE to newsletter</a>
     </footer>
 </body>
 

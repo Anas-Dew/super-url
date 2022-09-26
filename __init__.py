@@ -44,7 +44,7 @@ def runHome():
 
         return render_template('home.html', push_link=push_link,)
 
-    return render_template('home.html',push_msg="Paste link", push_link='Generate a link !')
+    return render_template('home.html',push_msg="Paste", push_link='Generate a link !')
 
 
 @app.route('/<link_code>', methods=['GET', 'POST'])
@@ -68,7 +68,7 @@ def redirectToOriginalLink(link_code):
                     elif matchPassword(link_code, passcode) == True:
                         return redirect(getLink(link_code))
                     return render_template('auth_redirect.html', input_message="Incorrect password !!!")
-                return render_template('auth_redirect.html', input_message="Enter secret password")
+                return render_template('auth_redirect.html', input_message="Enter password")
             else:
                 return redirect(getLink(link_code))
     else:
