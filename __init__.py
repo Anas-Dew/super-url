@@ -11,16 +11,6 @@ app.config['SECRET_KEY'] = 'i-have-removed-the-key'
 
 @app.route('/', methods=['GET', 'POST'])
 def runHome():
-    """
-    If the request method is POST, then get the link code, original link and passcode from the form. If
-    the original link is empty, then return the home page with a message. If the original link is not a
-    valid URL, then return the home page with a message. If the link code is already in the database,
-    then generate a new link code. If the original link starts with https:// or http://, then push the
-    link code, passcode and original link to the database. Otherwise, push the link code, passcode and
-    the original link with https:// prepended to the database. Then return the home page with the link
-    code and a message.
-    :return: the rendered template.
-    """
     if request.method == "POST":
         link_code = randomLinkCode()
         original_link = request.form.get("oglink")
@@ -77,11 +67,6 @@ def redirectToOriginalLink(link_code):
 
 @app.route('/report-a-problem', methods=['GET', 'POST'])
 def redirectToReportPage():
-    """
-    If the request method is POST, then get the problem from the form and submit it. 
-    If the request method is not POST, then render the report_a_problem.html page.
-    :return: the rendered template.
-    """
     if request.method == "POST":
         problem = request.form.get("msg-box")
         submitProblem(problem)

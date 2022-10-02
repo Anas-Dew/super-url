@@ -10,7 +10,7 @@
     <script>window.onload = function () {history.replaceState("", "", "/report-a-problem");};</script>
 </head>
 <body>
-    <h1>Descibe your problem</h1>
+    <h1>Explain your problem</h1>
     <div>
         <form action="/report-a-problem" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -21,7 +21,7 @@
     </div>
 
     <footer id="footer">
-        <p onclick="click_redirect_to_anas()">Anas-Dew @ 2022</p>
+        <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
     </footer>
 </body>
 </html>

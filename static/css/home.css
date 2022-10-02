@@ -33,7 +33,7 @@ form {
 
 input:focus {
     outline: none;
-    outline: 1px solid #a8fe39;
+    outline: 1px solid black;
     box-shadow: 0 0 4px #ffffff;
     
 }
@@ -60,6 +60,7 @@ input:focus {
     background: #e5e5e5;
     color: #000000;
     font-size: 0.8rem;
+    font-family: monospace;
     border: 1px solid black;
     border-radius: 10px;
     letter-spacing: 6px;
@@ -73,7 +74,7 @@ input:focus {
 
 
 #submit:hover{
-    background: #EDFF08;
+    background: #ffffff;
     width: 15%;
     letter-spacing: 0px;
 }

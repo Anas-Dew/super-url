@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2098R4JCB"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B2098R4JCB');
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +21,11 @@
     <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
 
     <link rel="stylesheet" rel="preload" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/top_bar.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/top_bar.css') }}"> -->
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2098R4JCB"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-B2098R4JCB');
-    </script>
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     <style>
@@ -47,7 +47,7 @@
 <body style="background-color : #4040d6;">
     <header>
 
-        <div style="    display: flex;
+        <div style="display: flex;
         place-content: space-between;
         align-items: baseline;
         margin: 15px;">
@@ -58,17 +58,6 @@
                 <a style="color: white;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
             </div>
         </div>
-        <!--it's menu bar -->
-        <!-- <nav id="top-bar" style="display: none;">
-            <a href="https://www.buymeacoffee.com/anasraza" target="_blank">Buy me a coffee</a>
-            <a href="https://github.com/Anas-Dew/super-url/blob/main/WHATIS.md" target="_blank">What is super URL?</a>
-            <a href="/report-a-problem">Report a problem</a>
-            <a style="background-color: #8ddb2a;" onclick="open_menu()">Close</a>
-        </nav>
-        <div id="top-bar-button" onclick="open_menu()" style="display: block;">Menu</div> -->
-        <!--it's menu bar end-->
-
-        <!-- <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1> -->
     </header>
 
     <form action="/" method="post" id="link-short-form">
@@ -101,8 +90,8 @@
 
     </div>
     <footer id="footer">
+        <a id="newsletter" style="color: white;" href="https://medium.com/subscribe/@anasdew" target="_blank" rel="noopener noreferrer">SUBSCRIBE to newsletter</a>
         <p onclick="click_redirect_to_anas()">&copy Anas Raza 2022</p>
-        <a style="color: white;" href="https://medium.com/subscribe/@anasdew" target="_blank" rel="noopener noreferrer">SUBSCRIBE to newsletter</a>
     </footer>
 </body>
 
