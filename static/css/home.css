@@ -83,6 +83,8 @@ input:focus {
     font-size: 10px;
     font-family: inherit;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 #password-radio{
