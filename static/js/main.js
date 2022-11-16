@@ -57,7 +57,3 @@ function open_menu() {
     }
 }
 // -----------------EXPERIMENTAL------------
-newsshow =  setInterval(function(){
-    let element = document.getElementById('newsletter')
-    element.style.color = 'blue' ? 'yellow': 'blue'
-}, 2000)
