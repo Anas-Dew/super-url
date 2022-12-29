@@ -40,7 +40,7 @@
     <title>URL Shortener - Short URLs , Free Link Shortener | Super URL</title>
     <meta name="description" content="free URL shortener to reduce long link and set password to links. It is totally free of cost and secure. Try it out."/>
 
-    <meta name="keywords" content="a url shortener, to url shortener, google url shortener, super url">
+    <meta name="keywords" content="link shortener, url shortener, custom link shortener free, anas dew">
 
 </head>
 
@@ -53,8 +53,6 @@
         margin: 15px;">
             <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
             <div>
-                <!-- <img style="width: 72px;height: 72px;" src="../files/tea.gif" alt=""> -->
-                <!-- <a style="color: white;" href="https://www.buymeacoffee.com/anasraza" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
                 <a id="newsletter" style="color: white;margin-top: 5px;" href="https://www.getrevue.co/profile/ananasraza" target="_blank" rel="noopener noreferrer">Get FREE Newsletter</a>
             </div>
         </div>
@@ -65,10 +63,14 @@
         <input type="text"  name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
 
         <input type="text" name="password-here" style="display: none;margin-top: 14px;" class="button input-boxes" id="password-here" placeholder="Password">
+        <input type="text" name="custom-handle" style="display: none;margin-top: 14px;" class="button input-boxes" id="custom-handle" placeholder="Custom Handle i.e. 'myshop', 'special-discount'">
         <div id="password-radio">
             <input type="checkbox" onclick="get_password()" name="p-radio" id="p-radio">
             <label for="p-radio">Password Protection</label>
+            <input type="checkbox" onclick="show_custom_handle()" name="c-radio" id="c-radio">
+            <label for="c-radio">Custom Handle</label>
         </div>
+        
 
 
         <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">short</button>

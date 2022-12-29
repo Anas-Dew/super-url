@@ -34,6 +34,13 @@ def isURLValid(url : str) :
         return True
     return False
 
+def crunchCustomHandle(custom_handle : str):
+    temp_list = custom_handle.split(' ')
+    strr = ''
+    for i in temp_list:
+        strr += i
+    return strr
 if __name__ == "__main__" :
     # print(isURLValid('https://www.geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression/#:~:text=Match%20the%20given%20URL%20with,regular%20expression%2C%20else%20return%20false.'))
+    # print(crunchCustomHandle('my love'))
     pass

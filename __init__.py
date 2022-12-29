@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
-from utilities import isURLValid, randomLinkCode
-from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem
+from utilities import isURLValid, randomLinkCode, crunchCustomHandle
+from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem, availableHandle
 import re
 from flask_wtf.csrf import CSRFProtect
 
@@ -15,6 +15,7 @@ def runHome():
         link_code = randomLinkCode()
         original_link = request.form.get("oglink")
         passcode = request.form.get("password-here")
+        custom_handle = request.form.get('custom-handle')
 
         if len(original_link) <= 0:
             return render_template('home.html',push_msg="Put a link !!",push_link='Put a link !!')
@@ -22,15 +23,21 @@ def runHome():
         elif isURLValid(original_link) == False:
             return render_template('home.html',push_msg="Invalid URL", push_link='Invalid URL')
 
+        if availableHandle(crunchCustomHandle(custom_handle)) == True:
+            return render_template('home.html',push_msg="Custom Handle already taken", push_link='Custom Handle already taken')
+        
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
         if re.search("^https://", original_link) or re.search("^http://", original_link):
-            pushToDatabase(link_code, passcode, original_link)
+            if custom_handle: pushToDatabase(crunchCustomHandle(custom_handle), passcode, original_link)
+            else : pushToDatabase(link_code, passcode, original_link)
         else:
-            pushToDatabase(link_code, passcode, f"https://{original_link}")
+            if custom_handle: pushToDatabase(crunchCustomHandle(custom_handle), passcode, f"https://{original_link}")
+            else :pushToDatabase(link_code, passcode, f"https://{original_link}")
 
-        push_link = f'superurl.pythonanywhere.com/{link_code}'
+        if custom_handle: push_link = f'superurl.pythonanywhere.com/{crunchCustomHandle(custom_handle)}'
+        else : push_link = f'superurl.pythonanywhere.com/{link_code}'
 
         return render_template('home.html', push_link=push_link,)
 

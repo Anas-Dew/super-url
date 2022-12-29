@@ -35,6 +35,16 @@ function get_password() {
     }
 };
 
+function show_custom_handle() {
+    is_radio_checked = document.getElementById('c-radio');
+    custom_handle = document.getElementById('custom-handle');
+    if (is_radio_checked.checked) {
+        custom_handle.style.display = "block";
+    } else {
+        custom_handle.style.display = "none";
+    }
+};
+
 // for copying shorted link directly from 'short' button by changing it to 'copy'
 function copy_text() {
     link = document.getElementById('linkhere').textContent;
