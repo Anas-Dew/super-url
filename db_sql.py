@@ -30,7 +30,6 @@ def matchPassword(link_code: str, passcode : str):
     return False
 
 def availableHandle(custom_handle : str):
-    print(custom_handle)
     custom_handle_found = db.query('select id from linkBase where id=%s', (custom_handle,))
     if custom_handle_found : return True
     else : return False

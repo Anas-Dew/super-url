@@ -21,23 +21,16 @@
     <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
 
     <link rel="stylesheet" rel="preload" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" rel="preload" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
 
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
 
-    <style>
-        #footer > p {
-            margin-right: 3px;
-        }
-        #footer > a {
-            margin-right: 3px;
-        }
-    </style>
-
-    <title>Free Custom Handle and Password Protection | Super URL | URL shortener </title>
+    <title>Free Custom Handle and Password Protection | Super URL | URL shortener API</title>
     <meta name="description" content="Free Custom Handle and Password Protection. It is totally free of cost and secure. Try it out. NO ACCOUNT NEEDED"/>
 
     <meta name="keywords" content="link shortener, url shortener, custom link shortener free, anas dew">
@@ -50,10 +43,11 @@
         <div style="display: flex;
         place-content: space-between;
         align-items: baseline;
-        margin: 15px;">
+        margin: 15px 45px 0px 45px  ;">
             <h1 id="app-title" onclick="window.location.reload(true)">Super URL</h1>
-            <div>
-                <a id="newsletter" style="color: white;margin-top: 5px;" href="https://bit.ly/dewsverse-community" target="_blank" rel="noopener noreferrer">Join Discord Community</a>
+            <div style="display: flex;
+            flex-direction: column;">
+                <a id="newsletter" style="color: white;margin-top: 5px;" href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" target="_blank" rel="noopener noreferrer">API</a>
             </div>
         </div>
     </header>
@@ -77,29 +71,15 @@
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
 
-    <div>
-        <!-- home ad -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5915669766823865"
-     crossorigin="anonymous"></script>
-        <!-- square -->
-        <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:300px"
-            data-ad-client="ca-pub-5915669766823865"
-            data-ad-slot="3021115437"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-
-    </div>
-
-    <div>
-        <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="anasraza" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-    </div>
     <footer id="footer">
-        <a href="https://www.producthunt.com/posts/super-url?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-super&#0045;url" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=363837&theme=neutral" alt="Super&#0032;URL - Keep&#0032;it&#0032;a&#0032;secret | Product Hunt" style="width: 140px; height: 50px;" width="250" height="54" /></a>
-        <a style="color: white;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
-        <p onclick="click_redirect_to_anas()">&copy 2023 Dewsverse by Anas Dew</p>
+        <a class="footer-items" href="https://www.producthunt.com/posts/super-url?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-super&#0045;url" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=363837&theme=neutral" alt="Super&#0032;URL - Keep&#0032;it&#0032;a&#0032;secret | Product Hunt" style="width: 140px; height: 50px;" width="250" height="54" /></a>
+        <p class="footer-items" onclick="click_redirect_to_anas()">&copy 2023 Super URL by Anas Dew</p>
+        <a class="footer-items" style="text-decoration: none;color: white;" href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" target="_blank" rel="noopener noreferrer">API</a>
+        <a class="footer-items" style="text-decoration: none;color: white;" href="https://bit.ly/dewsverse-community" target="_blank" rel="noopener noreferrer">Discord Community</a>
+        <a class="footer-items" style="color: white;text-decoration: none;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
     </footer>
+  
+
 </body>
 
 </html>

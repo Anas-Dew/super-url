@@ -80,11 +80,17 @@ input:focus {
 }
 
 #footer{
-    font-size: 10px;
+    font-size: 14px;
     font-family: inherit;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+}
+
+.footer-items {
+    margin-right: 20px;
 }
 
 #password-radio{

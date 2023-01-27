@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, jsonify
 from utilities import isURLValid, randomLinkCode, crunchCustomHandle
 from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem, availableHandle
 import re
@@ -18,30 +18,38 @@ def runHome():
         custom_handle = request.form.get('custom-handle')
 
         if len(original_link) <= 0:
-            return render_template('home.html',push_msg="Put a link !!",push_link='Put a link !!')
+            return render_template('home.html', push_msg="Put a link !!", push_link='Put a link !!')
 
         elif isURLValid(original_link) == False:
-            return render_template('home.html',push_msg="Invalid URL", push_link='Invalid URL')
+            return render_template('home.html', push_msg="Invalid URL", push_link='Invalid URL')
 
         if availableHandle(crunchCustomHandle(custom_handle)) == True:
-            return render_template('home.html',push_msg="Custom Handle already taken", push_link='Custom Handle already taken')
-        
+            return render_template('home.html', push_msg="Custom Handle already taken", push_link='Custom Handle already taken')
+
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
         if re.search("^https://", original_link) or re.search("^http://", original_link):
-            if custom_handle: pushToDatabase(crunchCustomHandle(custom_handle), passcode, original_link)
-            else : pushToDatabase(link_code, passcode, original_link)
+            if custom_handle:
+                pushToDatabase(crunchCustomHandle(
+                    custom_handle), passcode, original_link)
+            else:
+                pushToDatabase(link_code, passcode, original_link)
         else:
-            if custom_handle: pushToDatabase(crunchCustomHandle(custom_handle), passcode, f"https://{original_link}")
-            else :pushToDatabase(link_code, passcode, f"https://{original_link}")
+            if custom_handle:
+                pushToDatabase(crunchCustomHandle(custom_handle),
+                               passcode, f"https://{original_link}")
+            else:
+                pushToDatabase(link_code, passcode, f"https://{original_link}")
 
-        if custom_handle: push_link = f'superurl.pythonanywhere.com/{crunchCustomHandle(custom_handle)}'
-        else : push_link = f'superurl.pythonanywhere.com/{link_code}'
+        if custom_handle:
+            push_link = f'superurl.pythonanywhere.com/{crunchCustomHandle(custom_handle)}'
+        else:
+            push_link = f'superurl.pythonanywhere.com/{link_code}'
 
         return render_template('home.html', push_link=push_link,)
 
-    return render_template('home.html',push_msg="Paste", push_link='Generate a link !')
+    return render_template('home.html', push_msg="Paste", push_link='Generate a link !')
 
 
 @app.route('/<link_code>', methods=['GET', 'POST'])
@@ -58,16 +66,16 @@ def redirectToOriginalLink(link_code):
     :return: the link to the original link.
     """
     if searchInDatabase(link_code) == True:
-            if checkPass(link_code) == True:
-                if request.method == "POST":
-                    if len(passcode) <= 0:
-                        return render_template('auth_redirect.html', input_message="Please input password !!!")
-                    elif matchPassword(link_code, passcode) == True:
-                        return redirect(getLink(link_code))
-                    return render_template('auth_redirect.html', input_message="Incorrect password !!!")
-                return render_template('auth_redirect.html', input_message="Enter password")
-            else:
-                return redirect(getLink(link_code))
+        if checkPass(link_code) == True:
+            if request.method == "POST":
+                if len(passcode) <= 0:
+                    return render_template('auth_redirect.html', input_message="Please input password !!!")
+                elif matchPassword(link_code, passcode) == True:
+                    return redirect(getLink(link_code))
+                return render_template('auth_redirect.html', input_message="Incorrect password !!!")
+            return render_template('auth_redirect.html', input_message="Enter password")
+        else:
+            return redirect(getLink(link_code))
     else:
         return render_template('not_found.html')
 
@@ -78,6 +86,79 @@ def redirectToReportPage():
         problem = request.form.get("msg-box")
         submitProblem(problem)
     return render_template('report_a_problem.html')
+
+
+# API AREA
+
+@app.route('/api/short-link', methods=['GET', 'POST'])
+@csrf.exempt
+def createShortFormat():
+    if request.method == "POST":
+
+        request_body = request.json
+        link_code = randomLinkCode()
+        original_link = request_body['original_link']
+        passcode = request_body['link_password']
+        custom_handle = request_body['custom_handle']
+
+        if len(original_link) <= 0:
+            return jsonify({'message': 'URL not found.'}), 404
+
+        elif isURLValid(original_link) == False:
+            return jsonify({'message': 'URL is invalid.'}), 400
+
+        if availableHandle(crunchCustomHandle(custom_handle)) == True:
+            return jsonify({'message': 'Custom handle is already taken.'}), 400
+
+        if searchInDatabase(link_code) == True:
+            link_code = randomLinkCode()
+
+        if re.search("^https://", original_link) or re.search("^http://", original_link):
+            if custom_handle:
+                pushToDatabase(crunchCustomHandle(
+                    custom_handle), passcode, original_link)
+            else:
+                pushToDatabase(link_code, passcode, original_link)
+        else:
+            if custom_handle:
+                pushToDatabase(crunchCustomHandle(custom_handle),
+                               passcode, f"https://{original_link}")
+            else:
+                pushToDatabase(link_code, passcode, f"https://{original_link}")
+
+        if custom_handle:
+            push_link = f'{crunchCustomHandle(custom_handle)}'
+        else:
+            push_link = f'{link_code}'
+
+        return jsonify({'message': 'Link created successfully', 'link_code': push_link}), 200
+
+    return jsonify({'message': 'this endpoint only supports POST request'}), 400
+
+
+@app.route('/api/get-link', methods=['GET', 'POST'])
+@csrf.exempt
+def getOriginalLink():
+    request_body = request.json
+    passcode = request_body['password']
+    link_code = request_body['link_code']
+
+    if request.method == "GET":
+        if searchInDatabase(link_code) == True:
+            if checkPass(link_code) == True:
+                if request.method == "POST":
+                    if len(passcode) <= 0:
+                        return jsonify({'message': 'Password not found'}), 404
+                    elif matchPassword(link_code, passcode) == True:
+                        return jsonify({'message': 'success', "original_link" : getLink(link_code)}), 200
+                    return jsonify({'message': 'Incorrect password'}), 400
+                return jsonify({'message': 'Password not found'}), 404
+            else:
+                return jsonify({'message': 'success', "original_link" : getLink(link_code)}), 200
+        else:
+            return jsonify({'message': 'Link not found'}), 404
+            
+    return jsonify({'message': 'this endpoint only supports GET request'}), 400
 
 
 if __name__ == "__main__":
