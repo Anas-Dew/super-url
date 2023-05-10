@@ -34,7 +34,7 @@ After making a request, you will see a reponse like this below.
 ### Getting a link via API
 To get the original link from API call, you need to use `get-link` endpoint.
 
-API URL = `GET: superurl.pythonanywhere.com/api/get-link`
+API URL = `POST: superurl.pythonanywhere.com/api/get-link`
 
 To make the request, enter the password with the link code in the body as shown below.
 
