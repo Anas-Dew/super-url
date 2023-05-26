@@ -5,40 +5,64 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2098R4JCB"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-B2098R4JCB');
+        gtag('config', 'G-B2098R4JCB');
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5915669766823865"
-     crossorigin="anonymous"></script>
-    <link rel="canonical" href="https://superurl.pythonanywhere.com/"/>
-    <meta name="theme-color" content="#109973"/>
+        crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://superurl.pythonanywhere.com/" />
+    <meta name="theme-color" content="#109973" />
     <meta name="google-site-verification" content="ZvHr_E9-WR_hVxKzOr3-EOrLyuzPb02NBpWE0dPZ5T8" />
 
     <link rel="stylesheet" rel="preload" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="stylesheet" rel="preload" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
 
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)" href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1311px)"
+        href="{{ url_for('static', filename='css/home_mini_screen.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)"
+        href="{{ url_for('static', filename='css/home_mobile_screen.css') }}">
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='SUPERICON.png') }}">
     <script async src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
 
-    <title>Free Custom Handle and Password Protection | Super URL | URL shortener API</title>
-    <meta name="description" content="Free Custom Handle and Password Protection. It is totally free of cost and secure. Try it out. NO ACCOUNT NEEDED"/>
 
-    <meta name="keywords" content="link shortener, url shortener, custom link shortener free, anas dew">
+    <title>Free URL Shortener | Super URL | API | Anas Dew | Dewsverse</title>
+    <meta name="description"
+        content="URL shortener for free that converts long, ugly links into short, memorable, and trackable URLs. By Anas Dew - Dewsverse" />
+
+    <meta name="keywords"
+        content="Free URL Shortener, Super URL, Anas Dew, Short URLs, Branded Links, UTM builder, Link retargeting, Link shortener, Link tracking, Bitly URL shortener, TinyURL alternative, Youtube URL shortener, Custom short urls, Vanity URL, Marketing tools,Best URL shorteners, SMS links, Twitter bio link, Link management, Instagram bio URL, Create QR codes, Bitly alternative, Marketing blogs, URL shortener, Goo.gl, Bitly enterprise alternative, Migrate short URLs, Rebrandly">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body style="background-color : #4040d6;">
-    <header>
+    <header class="text-white bg-gray-900 body-font p-2 pb-[1.3rem]">
+        <div class=" container mx-auto flex flex-wrap justify-around p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="../static/SUPERICON.png" alt="">
+                <span class="ml-3 text-4xl text-white">Super URL</span>
+            </a>
+            <a href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" target="_blank"
+                class="inline-flex items-center hidden md:flex bg-black border-0 py-1 px-3 focus:outline-none hover:bg-gray-900 rounded text-base mt-4 md:mt-0">API
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+        <p>Super URL is a free tool to shorten URLs. Create short & memorable links in seconds.</p>
+        
+    </header>
+
+    <!-- // OLDER ONE -->
+    <!-- <header>
 
         <div style="display: flex;
         place-content: space-between;
@@ -50,35 +74,132 @@
                 <a id="newsletter" style="color: white;margin-top: 5px;" href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" target="_blank" rel="noopener noreferrer">API</a>
             </div>
         </div>
-    </header>
+    </header> -->
+
 
     <form action="/" method="post" id="link-short-form">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-        <input type="text"  name="oglink" class="button input-boxes" id="og-link" placeholder="{{push_msg}}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input type="text" name="oglink"
+            class="button input-boxes  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            id="og-link" placeholder="{{push_msg}}">
 
-        <input type="text" name="password-here" style="display: none;margin-top: 14px;" class="button input-boxes" id="password-here" placeholder="Password">
-        <input type="text" name="custom-handle" style="display: none;margin-top: 14px;" class="button input-boxes" id="custom-handle" placeholder="Custom Handle i.e. 'myshop', 'special-discount'">
+        <input type="text" name="password-here" style="display: none;margin-top: 14px;"
+            class="button input-boxes  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            id="password-here" placeholder="Password">
+        <input type="text" name="custom-handle" style="display: none;margin-top: 14px;"
+            class="button input-boxes  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            id="custom-handle" placeholder="Custom Handle i.e. 'myshop', 'special-discount'">
         <div id="password-radio">
             <input type="checkbox" onclick="get_password()" name="p-radio" id="p-radio">
             <label for="p-radio">Password Protection</label>
-            <input type="checkbox" onclick="show_custom_handle()" name="c-radio" id="c-radio">
-            <label for="c-radio">Custom Handle</label>
+            <!-- <input type="checkbox" onclick="show_custom_handle()" name="c-radio" id="c-radio">
+            <label for="c-radio">Custom Handle</label> -->
         </div>
-        
 
-
-        <button type="submit" method="post" class="button button-style" id="submit" onclick="copy_text()">short</button>
+        <button type="submit" method="post"
+            class="button button-style text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            id="submit" onclick="copy_text()">short</button>
         <h4 name="linkhere" style="display: none;" id="linkhere">{{push_link}}</h4>
     </form>
 
-    <footer id="footer">
-        <a class="footer-items" href="https://www.producthunt.com/posts/super-url?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-super&#0045;url" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=363837&theme=neutral" alt="Super&#0032;URL - Keep&#0032;it&#0032;a&#0032;secret | Product Hunt" style="width: 140px; height: 50px;" width="250" height="54" /></a>
-        <p class="footer-items" onclick="click_redirect_to_anas()">&copy 2023 Super URL by Anas Dew</p>
-        <a class="footer-items" style="text-decoration: none;color: white;" href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" target="_blank" rel="noopener noreferrer">API</a>
-        <a class="footer-items" style="text-decoration: none;color: white;" href="https://bit.ly/dewsverse-community" target="_blank" rel="noopener noreferrer">Discord Community</a>
-        <a class="footer-items" style="color: white;text-decoration: none;" href="/report-a-problem" rel="noopener noreferrer">Report a problem</a>
+    <!-- Container for demo purpose -->
+    <div class="container text-center p-[2.5rem]">
+
+        <!-- Section: Design Block -->
+        <section class=" text-gray-800">
+            <h2 class="text-3xl font-bold mb-12 text-center text-white">Frequently asked questions</h2>
+
+            <div class="grid lg:grid-cols-2 gap-2">
+                <div class="mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">What is a URL shortener?</p>
+                    <p class="text-white">
+                        A URL shortener is a web tool or service that takes a long, complex URL and creates a shorter, more manageable link. It redirects users who click on the shortened link to the original URL.
+                    </p>
+                </div>
+
+                <div class="mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">Why would I use a URL shortener?</p>
+                    <p class="text-white">
+                        There are several reasons to use a URL shortener. One common reason is to make long URLs more shareable, especially on platforms like social media with character limits. Shortened URLs are also useful for tracking click-through rates, gathering analytics, and managing campaign performance.
+                    </p>
+                </div>
+
+                <div class="mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">
+                        Are URL shorteners safe to use?
+                    </p>
+                    <p class="text-white">
+                        Most reputable URL shorteners are safe to use. However, it's essential to exercise caution when clicking on shortened links from unfamiliar sources. Some malicious actors may use URL shorteners to mask malicious websites or phishing attempts. It's always a good practice to verify the source of a shortened link before clicking on it.
+                    </p>
+                </div>
+
+                <div class="col-md-12 mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">Do URL shorteners affect SEO?</p>
+                    <p class="text-white">
+                        URL shorteners themselves typically do not have a direct impact on SEO (Search Engine Optimization) because they use redirects. However, excessive use of URL shorteners can potentially dilute the SEO value of your website if search engines perceive a large number of redirects as low-quality content. It's advisable to use them judiciously.
+                    </p>
+                </div>
+
+                <div class="mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">Where data is stored?</p>
+                    <p class="text-white">
+                        We use pythonanywhere as our database and hosting provider.
+                    </p>
+                </div>
+
+                <div class="mb-12 text-start">
+                    <p class="font-bold mb-4 text-white">Who made this?</p>
+                    <p class="text-white">
+                        Me, I mean, my name is Anas Dew. I am a full stack developer. It was my side project that is now become a full fleged tool. I put monthly update to it making sure it is bug free and have good experience.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Design Block -->
+
+    </div>
+    <!-- Container for demo purpose -->
+    <footer class="text-white body-font">
+        <div
+            class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <img src="../static/SUPERICON.png" alt="Super URL">
+                    <span class="ml-3 text-4xl text-white">Super URL</span>
+                </a>
+                <p class="mt-2 text-sm text-white">Free URL Shortener by Anas Dew. <a href="https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md" class="text-blue-400" target="_blank" rel="noopener noreferrer">API available</a></p>
+            </div>
+            <div class="text-white flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-whitetracking-widest text-sm mb-3">Other apps and tools</h2>
+                    <nav class=" list-none mb-10">
+                        <li>
+                            <a href="https://quickgpt.netlify.app/" target="_blank" class="text-white hover:text-gray-800">QuickGPT</a>
+                        </li>
+                        <li>
+                            <a href="https://google2002.netlify.app/" target="_blank" class="text-white hover:text-gray-800">Nostalgia Google</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="https://anasdew.tech/" target="_blank" class="text-white hover:text-gray-800">Anas Dew</a>
+                        </li>
+                       
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-900">
+            <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <p class="text-white text-sm text-center sm:text-left">© 2023 Anas Dew —
+                    <a href="https://anasdew.tech/" rel="noopener noreferrer" class="text-white ml-1"
+                        target="_blank">@dewsverse</a>
+                        - Last updated : 26-05-2023
+                </p>
+                
+            </div>
+        </div>
     </footer>
-  
+
 
 </body>
 

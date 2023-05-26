@@ -60,9 +60,7 @@ input:focus {
     background: #e5e5e5;
     color: #000000;
     font-size: 0.8rem;
-    font-family: monospace;
     border: 1px solid black;
-    border-radius: 10px;
     letter-spacing: 6px;
     cursor: pointer;
     margin-top: 23px;
