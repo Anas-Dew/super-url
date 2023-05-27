@@ -15,3 +15,12 @@ Additionally, you can expand shortened URLs back to their original form, making 
 * [Super URL app](http://superurl.pythonanywhere.com/)
 * [API Documentation](https://github.com/Anas-Dew/super-url/blob/main/API_Documentation.md)
 * [Dev Blog](https://dev.to/anasdew)
+
+
+## Easter Eggs
+<div style="display:flex; overflow: auto">
+    <img style="height:30rem" src="./version_gallery//1%20(1).png">
+    <img style="height:30rem" src="./version_gallery//1%20(2).png">
+    <img  style="height:30rem" src="./version_gallery//1%20(3).png">
+    <img style="height:30rem" src="./version_gallery//1%20(4).png">
+</div>
