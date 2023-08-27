@@ -4,11 +4,10 @@ db = quicksqlconnector('mysql','localhost', 6606,'root', 'anas9916', 'superurl')
 
 db.query('create database if not exists superurl')
 db.query('use superurl')
-db.query('create table if not exists linkBase(id varchar(100) primary key, passCode varchar(50), originalLink varchar(2000))')
-db.query('create table if not exists problemReported(msg varchar(500) primary key)')
+db.query('create table if not exists linkBase(id varchar(100) primary key, passCode varchar(50), originalLink varchar(2000), ip_address varchar(30))')
 
-def pushToDatabase(link_code: str, passcode : str, original_link: str):
-    db.query('insert into linkBase values(%s, %s, %s)', (link_code, passcode, original_link))
+def pushToDatabase(link_code: str, passcode : str, original_link: str, ip_address: str):
+    db.query('insert into linkBase values(%s, %s, %s, %s)', (link_code, passcode, original_link, ip_address))
 
 def searchInDatabase(link_code: str):
     url = db.query('select originalLink from linkBase where id=%s', (link_code,))

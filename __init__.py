@@ -3,11 +3,11 @@ from utilities import isURLValid, randomLinkCode, crunchCustomHandle
 from db_sql import checkPass, matchPassword, pushToDatabase, searchInDatabase, getLink, submitProblem, availableHandle
 import re
 from flask_wtf.csrf import CSRFProtect
-
+from flask_cors import CORS
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-app.config['SECRET_KEY'] = 'i-have-removed-the-key'
-
+app.config['SECRET_KEY'] = 'SECRET-KEY'
+CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def runHome():
@@ -16,6 +16,10 @@ def runHome():
         original_link = request.form.get("oglink")
         passcode = request.form.get("password-here")
         custom_handle = request.form.get('custom-handle')
+        ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+        if re.search("^http://", original_link):
+            return render_template('home.html', push_msg="Only https links are accepted.", push_link='Only https links are accepted.')
 
         if len(original_link) <= 0:
             return render_template('home.html', push_msg="Put a link !!", push_link='Put a link !!')
@@ -29,18 +33,24 @@ def runHome():
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
-        if re.search("^https://", original_link) or re.search("^http://", original_link):
+        if re.search("^https://", original_link):
             if custom_handle:
                 pushToDatabase(crunchCustomHandle(
                     custom_handle), passcode, original_link)
             else:
-                pushToDatabase(link_code, passcode, original_link)
+                if ip_address:
+                    pushToDatabase(link_code, passcode, original_link, ip_address)
+                else:
+                    pushToDatabase(link_code, passcode, original_link, 'NULL')
         else:
             if custom_handle:
                 pushToDatabase(crunchCustomHandle(custom_handle),
                                passcode, f"https://{original_link}")
             else:
-                pushToDatabase(link_code, passcode, f"https://{original_link}")
+                if ip_address:
+                    pushToDatabase(link_code, passcode, f"https://{original_link}", ip_address)
+                else:
+                    pushToDatabase(link_code, passcode, f"https://{original_link}", 'NULL')
 
         if custom_handle:
             push_link = f'superurl.pythonanywhere.com/{crunchCustomHandle(custom_handle)}'
@@ -61,7 +71,7 @@ def redirectToOriginalLink(link_code):
     auth_redirect.html template with the message "Incorrect password !!!" If the link_code doesn't have
     a password, then redirect to the original link. If the link_code isn't in the database, then render
     the not_found.html template.
-    
+
     :param link_code: The code that the user will enter in the browser to access the link
     :return: the link to the original link.
     """
@@ -95,14 +105,19 @@ def redirectToReportPage():
 def createShortFormat():
     if request.method == "POST":
 
+
         request_body = request.json
         link_code = randomLinkCode()
         original_link = request_body['original_link']
         passcode = request_body['link_password']
         custom_handle = request_body['custom_handle']
+        ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+        if re.search("^http://", original_link):
+            return jsonify({'message': 'We only accept https URLs.'}), 400
 
         if len(original_link) <= 0:
-            return jsonify({'message': 'URL not found.'}), 404
+            return jsonify({'message': 'URL not found in request.'}), 400
 
         elif isURLValid(original_link) == False:
             return jsonify({'message': 'URL is invalid.'}), 400
@@ -113,18 +128,24 @@ def createShortFormat():
         if searchInDatabase(link_code) == True:
             link_code = randomLinkCode()
 
-        if re.search("^https://", original_link) or re.search("^http://", original_link):
+        if re.search("^https://", original_link):
             if custom_handle:
                 pushToDatabase(crunchCustomHandle(
-                    custom_handle), passcode, original_link)
+                    custom_handle), passcode, original_link, ip_address)
             else:
-                pushToDatabase(link_code, passcode, original_link)
+                if ip_address:
+                    pushToDatabase(link_code, passcode, original_link, ip_address)
+                else:
+                    pushToDatabase(link_code, passcode, original_link, 'NULL')
         else:
             if custom_handle:
                 pushToDatabase(crunchCustomHandle(custom_handle),
-                               passcode, f"https://{original_link}")
+                               passcode, f"https://{original_link}", ip_address)
             else:
-                pushToDatabase(link_code, passcode, f"https://{original_link}")
+                if ip_address:
+                    pushToDatabase(link_code, passcode, f"https://{original_link}", ip_address)
+                else:
+                    pushToDatabase(link_code, passcode, f"https://{original_link}", 'NULL')
 
         if custom_handle:
             push_link = f'{crunchCustomHandle(custom_handle)}'
@@ -143,22 +164,22 @@ def getOriginalLink():
     passcode = request_body['password']
     link_code = request_body['link_code']
 
-    if request.method == "GET":
+    if request.method == "GET" or request.method == "POST":
         if searchInDatabase(link_code) == True:
             if checkPass(link_code) == True:
                 if request.method == "POST":
                     if len(passcode) <= 0:
-                        return jsonify({'message': 'Password not found'}), 404
+                        return jsonify({'message': 'Password not found'}), 200
                     elif matchPassword(link_code, passcode) == True:
                         return jsonify({'message': 'success', "original_link" : getLink(link_code)}), 200
                     return jsonify({'message': 'Incorrect password'}), 400
-                return jsonify({'message': 'Password not found'}), 404
+                return jsonify({'message': 'Password not found'}), 200
             else:
                 return jsonify({'message': 'success', "original_link" : getLink(link_code)}), 200
         else:
             return jsonify({'message': 'Link not found'}), 404
-            
-    return jsonify({'message': 'this endpoint only supports GET request'}), 400
+
+    return jsonify({'message': 'this endpoint only supports GET and POST requests'}), 400
 
 
 if __name__ == "__main__":

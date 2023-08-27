@@ -1,17 +1,17 @@
 import random
 import re
-eng_small = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 
+eng_small = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
 'w', 'x', 'y', 'z']
 
-eng_big = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+eng_big = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
 'W', 'X', 'Y', 'Z']
 
 def randomLinkCode():
     """
     It creates a list of 5 elements, the first element is a random integer between 0 and 9, the second
     element is a random lowercase letter, the third element is a random integer between 0 and 99, the
-    fourth element is a random uppercase letter, and the fifth element is a random lowercase letter. 
-    
+    fourth element is a random uppercase letter, and the fifth element is a random lowercase letter.
+
     The function then returns the list as a string
     :return: A string of 5 characters.
     """
@@ -21,7 +21,7 @@ def randomLinkCode():
     link_key.append(f'{random.randint(0,99)}')
     link_key.append(random.choice(eng_big))
     link_key.append(random.choice(eng_small))
-    
+
     return ''.join(link_key)
 
 # -------------------------------------------------------------
@@ -34,12 +34,13 @@ def isURLValid(url : str) :
         return True
     return False
 
-def crunchCustomHandle(custom_handle : str):
-    temp_list = custom_handle.split(' ')
-    strr = ''
-    for i in temp_list:
-        strr += i
-    return strr
+def crunchCustomHandle(custom_handle: str):
+    result = ''
+    for char in custom_handle:
+        if char.isalnum() or char in ['-', '_']:
+            result += char
+    return result
+
 if __name__ == "__main__" :
     # print(isURLValid('https://www.geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression/#:~:text=Match%20the%20given%20URL%20with,regular%20expression%2C%20else%20return%20false.'))
     # print(crunchCustomHandle('my love'))
